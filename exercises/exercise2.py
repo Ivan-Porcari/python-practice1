@@ -6,13 +6,13 @@ Construir una expresión lógica que use TODAS las variables y cuyo resultado se
 True si al menos una de las variables es True.
 """
 
+
 esta_lloviendo = True
 riego_activado = True
 
 # COMPLETAR - INICIO
-
+piso_mojado = esta_lloviendo or riego_activado
 # COMPLETAR - FIN
-
 assert piso_mojado
 
 
@@ -24,11 +24,9 @@ Restricción: Usar NOT.
 
 lado_cuadrado = 5
 area_cuadrado = pow(lado_cuadrado, 2)
-
 # COMPLETAR - INICIO
-
+area_mayor_a_cinco = not(area_cuadrado <= 5)
 # COMPLETAR - FIN
-
 assert area_mayor_a_cinco
 
 
@@ -37,10 +35,12 @@ Construir una expresión lógica que use TODAS las variables y cuyo resultado se
 True si el número 1 es divisible por 7 y al mismo tiempo el número 2 no lo es.
 """
 
+
 numero_1 = 49
 numero_2 = 50
 
 # COMPLETAR - INICIO
+resultado = (numero_1 % 7 == 00) and (numero_2 % 7 != 0)
 
 # COMPLETAR - FIN
 
@@ -60,7 +60,16 @@ variable_04 = "90"
 variable_05 = 100
 
 # COMPLETAR - INICIO
+resultado = variable_01 or (not variable_02) or (variable_03) or (variable_04) or (variable_05)
 
 # COMPLETAR - FIN
 
 assert resultado == 80
+
+
+#Explicación:
+#variable_01 or ...: Dado que variable_01 es False, la expresión continúa evaluándose.
+#not variable_02: not invierte el valor de variable_02, que es True, y se convierte en False. La expresión continúa.
+#variable_03: Aquí, variable_03 es 80. Como ya tenemos un valor True en la expresión, no importa el valor de los siguientes términos.
+#variable_04 y variable_05 no se evalúan debido al mecanismo de cortocircuito. La expresión ya tiene un valor True, por lo que no es necesario evaluar los valores restantes.
+#Por lo tanto, el resultado de la expresión lógica será 80, que es igual al valor de variable_03.#
